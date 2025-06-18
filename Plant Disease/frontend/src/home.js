@@ -28,12 +28,16 @@ const axios = require("axios").default;
 const useStyles = makeStyles((theme) => ({
   grow: { flexGrow: 1 },
   clearButton: {
-    width: "-webkit-fill-available",
-    borderRadius: "15px",
-    padding: "15px 22px",
-    color: "#000000a6",
-    fontSize: "20px",
-    fontWeight: 900,
+    width: "100%",
+    borderRadius: "12px",
+    padding: "12px 24px",
+    color: "#1b1b1b",
+    backgroundColor: "#d8f3dc",
+    fontSize: "18px",
+    fontWeight: 700,
+    '&:hover': {
+      backgroundColor: "#b7e4c7",
+    },
   },
   root: {
     maxWidth: 345,
@@ -59,11 +63,10 @@ const useStyles = makeStyles((theme) => ({
   },
   imageCard: {
     margin: "auto",
-    maxWidth: 400,
-    height: 500,
-    backgroundColor: 'transparent',
-    boxShadow: '0px 9px 70px 0px rgb(0 0 0 / 30%) !important',
-    borderRadius: '15px',
+    maxWidth: 420,
+    backgroundColor: 'rgba(40, 158, 40, 0.85)', 
+    boxShadow: '0px 12px 40px rgba(0,0,0,0.2)',
+    borderRadius: '16px',
   },
   imageCardEmpty: { height: 'auto' },
   noImage: {
@@ -71,53 +74,61 @@ const useStyles = makeStyles((theme) => ({
     width: 400,
     height: "400 !important",
   },
+  content: {
+    padding: theme.spacing(3),
+    textAlign: 'center',
+  },
   input: { display: 'none' },
   uploadIcon: { background: 'white' },
   tableContainer: {
-    backgroundColor: 'transparent !important',
-    boxShadow: 'none !important',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
-  table: { backgroundColor: 'transparent !important' },
-  tableHead: { backgroundColor: 'transparent !important' },
-  tableRow: { backgroundColor: 'transparent !important' },
+  table: { backgroundColor: 'transparent' },
+  tableHead: { backgroundColor: 'transparent' },
+  tableRow: { backgroundColor: 'transparent' },
   tableCell: {
-    fontSize: '22px',
-    backgroundColor: 'transparent !important',
-    borderColor: 'transparent !important',
-    color: '#000000a6 !important',
-    fontWeight: 'bolder',
-    padding: '1px 24px 1px 16px',
+    fontSize: '20px',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    color: '#1b1b1b',
+    fontWeight: 600,
+    padding: '8px 24px',
   },
   tableCell1: {
-    fontSize: '14px',
-    backgroundColor: 'transparent !important',
-    borderColor: 'transparent !important',
-    color: '#000000a6 !important',
-    fontWeight: 'bolder',
-    padding: '1px 24px 1px 16px',
+    fontSize: '16px',
+    backgroundColor: 'rgba(88, 169, 88, 0.9)', 
+   borderColor: 'transparent',
+    color: '#1b1b1b',
+    fontWeight: 'bold',
+    padding: '8px 24px',
   },
-  tableBody: { backgroundColor: 'transparent !important' },
+  tableBody: {
+    backgroundColor: 'rgba(93, 166, 93, 0.75)', 
+  },
   text: {
-    color: 'white !important',
+    color: '#1b1b1b',
     textAlign: 'center',
   },
   buttonGrid: {
-    maxWidth: "416px",
+    maxWidth: "420px",
     width: "100%",
   },
   detail: {
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255,255,255,0.9)',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
+    borderRadius: '12px',
+    padding: theme.spacing(2),
   },
   appbar: {
-    background: '#be6a77',
+    background: '#1b4332',
     boxShadow: 'none',
     color: 'white',
   },
-  loader: { color: '#be6a77 !important' },
+  loader: { color: '#1b4332 !important' },
   someClass: {
     userSelect: 'none',
     '-webkit-user-select': 'none',
@@ -149,7 +160,7 @@ export const ImageUpload = () => {
     }
     const objectUrl = URL.createObjectURL(selectedFile);
     setPreview(objectUrl);
-    return () => URL.revokeObjectURL(objectUrl); // Clean up object URL
+    return () => URL.revokeObjectURL(objectUrl); 
   }, [selectedFile]);
 
   useEffect(() => {
